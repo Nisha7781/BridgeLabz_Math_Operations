@@ -89,7 +89,11 @@ public class MathCalculator
         {
             System.out.println("No numbers are even.");
         }
-        
+
+        List<Integer> sortedNumbers = numbers.stream()
+                .sorted()
+                .collect(Collectors.toList());
+        System.out.println("\nSorted numbers in ascending order: " + sortedNumbers);
     }
 
 

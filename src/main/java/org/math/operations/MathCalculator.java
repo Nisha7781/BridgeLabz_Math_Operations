@@ -26,18 +26,19 @@ public class MathCalculator
         numbers.add(25);
         numbers.add(40);
 
-        System.out.println("\nTransforming each element to double and storing the result in new list:");
+        System.out.println("\nFiltering even numbers from the number stream and storing the result:");
 
-        List<Double> doubleList = numbers.stream()
-                .map(Double::valueOf)
+        List<Integer> evenNumbers = numbers.stream()
+                .filter(n -> n % 2 == 0)
                 .collect(Collectors.toList());
+
 
 
         System.out.println("Original list:");
         numbers.forEach(System.out::println);
 
         System.out.println("Updated list:");
-        doubleList.forEach(System.out::println);
+        evenNumbers.forEach(System.out::println);
     }
 
     private static void displayResult(String operation, MathOperations M, int a, int b)

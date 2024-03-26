@@ -22,9 +22,9 @@ public class MathCalculator
         displayResult("Division", div, 18, 3);
 
         List<Integer> numbers = new ArrayList<>();
-        numbers.add(19);
+        numbers.add(49);
         numbers.add(20);
-        numbers.add(25);
+        numbers.add(15);
         numbers.add(40);
 
         System.out.println("\nFinding the minimum and maximum even numbers in the number stream:");
@@ -67,6 +67,29 @@ public class MathCalculator
         {
             System.out.println("No numbers found.");
         }
+
+        System.out.println("\nFinding if all numbers or at least one number is even in the number stream:");
+
+        boolean allEven = numbers.stream().allMatch(n -> n % 2 == 0);
+        if (allEven)
+        {
+            System.out.println("All numbers are even.");
+        }
+        else
+        {
+            System.out.println("Not all numbers are even.");
+        }
+
+        boolean anyEven = numbers.stream().anyMatch(n -> n % 2 == 0);
+        if (anyEven)
+        {
+            System.out.println("At least one number is even.");
+        }
+        else
+        {
+            System.out.println("No numbers are even.");
+        }
+        
     }
 
 

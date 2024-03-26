@@ -27,26 +27,34 @@ public class MathCalculator
         numbers.add(25);
         numbers.add(40);
 
-        System.out.println("\nPeek and show the first even number in the number stream:");
+        System.out.println("\nFinding the minimum and maximum even numbers in the number stream:");
 
-        System.out.println("Original list:");
-        numbers.forEach(System.out::println);
-        System.out.println();
-
-        Optional<Integer> firstEven = numbers.stream()
+        Optional<Integer> minEven = numbers.stream()
                 .filter(n -> n % 2 == 0)
-                .peek(System.out::println)
-                .findFirst();
+                .min(Integer::compareTo);
 
-        if (firstEven.isPresent())
+        if (minEven.isPresent())
         {
-            System.out.println("First even number: " + firstEven.get());
+            System.out.println("Minimum even number: " + minEven.get());
+        }
+        else
+        {
+            System.out.println("No even numbers found.");
+        }
+
+        Optional<Integer> maxEven = numbers.stream()
+                .filter(n -> n % 2 == 0)
+                .max(Integer::compareTo);
+        if (maxEven.isPresent())
+        {
+            System.out.println("Maximum even number: " + maxEven.get());
         }
         else
         {
             System.out.println("No even numbers found.");
         }
     }
+
 
     private static void displayResult(String operation, MathOperations M, int a, int b)
     {

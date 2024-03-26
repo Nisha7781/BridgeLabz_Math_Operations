@@ -5,14 +5,19 @@ public class MathCalculator
 
     public static void main(String[] args)
     {
-        MathOperations add = (a,b) -> a+b;
-        MathOperations sub = (a,b) -> a-b;
-        MathOperations mul = (a,b) -> a*b;
-        MathOperations div = (a,b) -> a/b;
+        MathOperations add = (a, b) -> a + b;
+        MathOperations sub = (a, b) -> a - b;
+        MathOperations mul = (a, b) -> a * b;
+        MathOperations div = (a, b) -> a / b;
 
-        System.out.println("Addition is : " + add.calculate(8, 5));
-        System.out.println("Subtraction is : " + sub.calculate(20, 5));
-        System.out.println("Multiplication is : " + mul.calculate(10, 4));
-        System.out.println("Division is : " + div.calculate(18, 3));    }
+        displayResult("Addition", add, 8, 5);
+        displayResult("Subtraction", sub, 20, 5);
+        displayResult("Multiplication", mul, 40, 4);
+        displayResult("Division", div, 18, 3);
+    }
 
+    private static void displayResult(String operation, MathOperations M, int a, int b)
+    {
+        System.out.println(operation + " is : " + M.calculate(a, b));
+    }
 }

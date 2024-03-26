@@ -2,10 +2,10 @@ package org.math.operations;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class MathCalculator
 {
-
     public static void main(String[] args)
     {
         MathOperations add = (a, b) -> a + b;
@@ -25,16 +25,14 @@ public class MathCalculator
         displayResult("Multiplication", mul, 10, 4);
         displayResult("Division", div, 18, 3);
 
-
         List<Integer> numbers = new ArrayList<>();
         numbers.add(10);
         numbers.add(20);
-        numbers.add(30);
+        numbers.add(25);
         numbers.add(40);
 
-        System.out.println("\nIterating through number play list using forEach:");
-        // Iterate through the list and print each element in double
-        numbers.forEach(MathCalculator::printDouble);
+        System.out.println("\nIterating through number playlist and printing only even numbers:");
+        numbers.forEach(MathCalculator::printEven);
     }
 
     private static void displayResult(String operation, MathOperations M, int a, int b)
@@ -42,9 +40,13 @@ public class MathCalculator
         System.out.println(operation + " is : " + M.calculate(a, b));
     }
 
-    private static void printDouble(int number)
+    private static Predicate<Integer> isEven = n -> n % 2 == 0;
+    private static void printEven(int number)
     {
-        System.out.println("Double of " + number + " is: " + convertToDouble(number));
+        if (isEven.test(number))
+        {
+            System.out.println(number + " is an even number.");
+        }
     }
 
     interface NumberConverter
@@ -58,3 +60,4 @@ public class MathCalculator
         return converter.convert(number);
     }
 }
+

@@ -3,13 +3,17 @@ package org.math.operations;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MathCalculator {
+public class MathCalculator 
+{
 
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
         MathOperations add = (a, b) -> a + b;
-        MathOperations sub = new MathOperations() {
+        MathOperations sub = new MathOperations() 
+        {
             @Override
-            public int calculate(int a, int b) {
+            public int calculate(int a, int b) 
+            {
                 return a - b;
             }
         };

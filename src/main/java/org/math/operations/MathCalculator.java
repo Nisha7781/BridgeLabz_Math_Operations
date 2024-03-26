@@ -25,21 +25,23 @@ public class MathCalculator {
 
         System.out.println("\nIterating through number playlist and printing only even numbers:");
 
+        numbers.stream().forEach(n -> System.out.println("Value: " + n));
 
         Function<Integer, Double> doubleFunction = Integer::doubleValue;
         numbers.forEach(n -> {
-            System.out.println("double Value::" + doubleFunction.apply(n));
+            System.out.println("Double Value::" + doubleFunction.apply(n));
         });
-
 
         Predicate<Integer> isEvenFunction = n -> n % 2 == 0;
         numbers.forEach(n -> {
-            System.out.println("value: " + n + " check for Even: " + isEvenFunction.test(n));
+            System.out.println("Value: " + n + " Check for Even: " + isEvenFunction.test(n));
         });
     }
 
-    private static void displayResult(String operation, MathOperations M, int a, int b) {
+    private static void displayResult(String operation, MathOperations M, int a, int b)
+    {
         System.out.println(operation + " is : " + M.calculate(a, b));
     }
 
 }
+

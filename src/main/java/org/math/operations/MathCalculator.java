@@ -26,17 +26,18 @@ public class MathCalculator
         numbers.add(25);
         numbers.add(40);
 
-        System.out.println("\nTransforming each element to double and storing the result:");
+        System.out.println("\nTransforming each element to double and storing the result in new list:");
 
-        List<Double> doubles = numbers.stream()
+        List<Double> doubleList = numbers.stream()
                 .map(Double::valueOf)
                 .collect(Collectors.toList());
+
 
         System.out.println("Original list:");
         numbers.forEach(System.out::println);
 
         System.out.println("Updated list:");
-        doubles.forEach(System.out::println);
+        doubleList.forEach(System.out::println);
     }
 
     private static void displayResult(String operation, MathOperations M, int a, int b)

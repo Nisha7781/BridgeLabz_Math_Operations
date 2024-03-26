@@ -53,6 +53,20 @@ public class MathCalculator
         {
             System.out.println("No even numbers found.");
         }
+
+        System.out.println("\nFinding the sum and average of numbers in the number stream:");
+        Optional<Integer> sum = numbers.stream().reduce(Integer::sum);
+        long count = numbers.size();
+        if (sum.isPresent())
+        {
+            double average = (double) sum.get() / count;
+            System.out.println("Sum: " + sum.get());
+            System.out.println("Average: " + average);
+        }
+        else
+        {
+            System.out.println("No numbers found.");
+        }
     }
 
 

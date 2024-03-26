@@ -2,21 +2,13 @@ package org.math.operations;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
-public class MathCalculator
-{
-    public static void main(String[] args)
-    {
+public class MathCalculator {
+    public static void main(String[] args) {
         MathOperations add = (a, b) -> a + b;
-        MathOperations sub = new MathOperations()
-        {
-            @Override
-            public int calculate(int a, int b)
-            {
-                return a - b;
-            }
-        };
+        MathOperations sub = (a, b) -> a - b;
         MathOperations mul = (a, b) -> a * b;
         MathOperations div = (a, b) -> a / b;
 
@@ -32,32 +24,22 @@ public class MathCalculator
         numbers.add(40);
 
         System.out.println("\nIterating through number playlist and printing only even numbers:");
-        numbers.forEach(MathCalculator::printEven);
+
+
+        Function<Integer, Double> doubleFunction = Integer::doubleValue;
+        numbers.forEach(n -> {
+            System.out.println("double Value::" + doubleFunction.apply(n));
+        });
+
+
+        Predicate<Integer> isEvenFunction = n -> n % 2 == 0;
+        numbers.forEach(n -> {
+            System.out.println("value: " + n + " check for Even: " + isEvenFunction.test(n));
+        });
     }
 
-    private static void displayResult(String operation, MathOperations M, int a, int b)
-    {
+    private static void displayResult(String operation, MathOperations M, int a, int b) {
         System.out.println(operation + " is : " + M.calculate(a, b));
     }
 
-    private static Predicate<Integer> isEven = n -> n % 2 == 0;
-    private static void printEven(int number)
-    {
-        if (isEven.test(number))
-        {
-            System.out.println(number + " is an even number.");
-        }
-    }
-
-    interface NumberConverter
-    {
-        double convert(int number);
-    }
-
-    private static double convertToDouble(int number)
-    {
-        NumberConverter converter = n -> n * 2.0;
-        return converter.convert(number);
-    }
 }
-

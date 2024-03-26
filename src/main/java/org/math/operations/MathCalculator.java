@@ -31,9 +31,9 @@ public class MathCalculator
         numbers.add(20);
         numbers.add(30);
         numbers.add(40);
-        numbers.add(50);
 
         System.out.println("\nIterating through number play list using forEach:");
+        // Iterate through the list and print each element in double
         numbers.forEach(MathCalculator::printDouble);
     }
 
@@ -47,7 +47,6 @@ public class MathCalculator
         System.out.println("Double of " + number + " is: " + convertToDouble(number));
     }
 
-
     interface NumberConverter
     {
         double convert(int number);
@@ -55,8 +54,7 @@ public class MathCalculator
 
     private static double convertToDouble(int number)
     {
-        NumberConverter converter = n -> n * 2.0; // Using lambda expression
+        NumberConverter converter = n -> n * 2.0;
         return converter.convert(number);
     }
 }
-
